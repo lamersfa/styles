@@ -1,0 +1,85 @@
+[nitpick]
+minimum_version = "0.22.0"
+
+[nitpick.styles]
+include = [
+  "file-structure.toml",
+  "flake8.toml",
+  "isort.toml",
+  "black.toml",
+  "mypy.toml",
+  "editorconfig.toml",
+]
+
+[[".pre-commit-config.yaml".repos]]
+yaml = """
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    hooks:
+      - id: check-added-large-files
+      - id: check-case-conflict
+      - id: check-json
+      - id: check-symlinks
+      - id: check-merge-conflict
+      - id: name-tests-test
+        args: ['--django']
+        exclude: 'const.py'
+      - id: requirements-txt-fixer
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: debug-statements
+        exclude: 'static'
+      - id: fix-encoding-pragma
+        args: ['--remove']
+      - id: mixed-line-ending
+        args: ['--fix=lf']
+      - id: sort-simple-yaml
+  - repo: https://github.com/asottile/pyupgrade
+    hooks:
+      - id: pyupgrade
+"""
+
+[[".pre-commit-config.yaml".repos]]
+yaml = """
+  - repo: https://github.com/pre-commit/pygrep-hooks
+    hooks:
+      - id: python-check-blanket-noqa
+      - id: python-check-mock-methods
+      - id: python-no-eval
+      - id: python-no-log-warn
+"""
+
+[[".pre-commit-config.yaml".repos]]
+yaml = """
+  -   repo: local
+      hooks:
+      - id: pytest-cov
+        name: pytest Cov
+        language: system
+        types: [python]
+        pass_filenames: false
+"""
+
+[[".pre-commit-config.yaml".repos]]
+yaml = """
+  - repo: https://github.com/terrencepreilly/darglint
+    hooks:
+      - id: darglint
+"""
+
+[[".pre-commit-config.yaml".repos]]
+yaml = """
+  - repo: https://github.com/asottile/pyupgrade
+    hooks:
+      - id: pyupgrade
+"""
+
+
+
+[[".pre-commit-config.yaml".repos]]
+yaml = """
+  - repo: https://github.com/commitizen-tools/commitizen
+    hooks:
+    - id: commitizen
+      stages:
+        - commit-msg
+"""

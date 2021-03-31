@@ -1,0 +1,13 @@
+["pyproject.toml".tool.black]
+line-length = 120
+
+[[".pre-commit-config.yaml".repos]]
+yaml = """
+  - repo: https://github.com/psf/black
+    hooks:
+      - id: black
+        args: [--safe, --quiet]
+  - repo: https://github.com/asottile/blacken-docs
+    hooks:
+      - id: blacken-docs
+"""

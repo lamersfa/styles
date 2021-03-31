@@ -1,0 +1,35 @@
+["setup.cfg".flake8]
+ignore = "B950,E501,WPS305,D107,D202,D203,D401"
+max-line-length = 120
+inline-quotes = "double"
+format = "wemake"
+show-source = true
+statistics = false
+doctests = true
+max-returns = 2
+max-complexity = 6
+select = "B,C,D,E,F,W,T4,B9,B901"
+strictness = "long"
+exclude =".git,__pycache__,.venv,.eggs,*.egg,buildsetup.py"
+
+[[".pre-commit-config.yaml".repos]]
+yaml = """
+  - repo: https://gitlab.com/pycqa/flake8
+    hooks:
+      - id: flake8
+        additional_dependencies:
+          [
+            flake8-blind-except,
+            flake8-bugbear,
+            flake8-comprehensions,
+            flake8-debugger,
+            flake8-docstrings,
+            flake8-isort,
+            flake8-polyfill,
+            flake8-pytest,
+            flake8-quotes,
+            flake8-typing-imports,
+            yesqa,
+            wemake_python_styleguide
+          ]
+"""
