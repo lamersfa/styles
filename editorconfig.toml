@@ -11,7 +11,7 @@ end_of_line = "lf"
 charset = "utf-8"
 max_line_length = 120
 
-[".editorconfig"."*.{yml,yaml,md}"]
+[".editorconfig"."*.{yml,yaml,md,toml}"]
 indent_size = 2
 
 [".editorconfig".Makefile]

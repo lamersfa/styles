@@ -2,7 +2,7 @@
 allow_redefinition = false
 check_untyped_defs = true
 
-disallow_any_explicit = false
+disallow_any_explicit = true
 pretty = true
 show_error_codes = true
 disallow_any_generics = true
